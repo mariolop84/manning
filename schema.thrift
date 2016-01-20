@@ -1,4 +1,3 @@
-
 namespace java manning.schema
 
 union PersonID {
