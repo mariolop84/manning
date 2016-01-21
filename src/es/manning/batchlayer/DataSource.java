@@ -46,6 +46,10 @@ public class DataSource {
     }
     
     public static void main(String [ ] args){
+    	try{
     	DataSource.initTestData();
+    	}catch(Exception e){
+    		
+    	}
     }
 }
