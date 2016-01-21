@@ -1,4 +1,4 @@
-package java.manning.tap;
+package es.manning.tap;
 
 import java.manning.schema.Data;
 /**

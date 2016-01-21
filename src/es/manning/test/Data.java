@@ -1,4 +1,4 @@
-package java.manning.test;
+package es.manning.test;
 
 
 import java.manning.schema.*;
