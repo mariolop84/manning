@@ -8,19 +8,56 @@ import org.apache.thrift.TDeserializer;
 import org.apache.thrift.TException;
 import org.apache.thrift.TSerializer;
 
+/**
+ *A structured pail for Thrift objects
+ *Clase que modela una estructura para serializar y deserializar datos.
+ *La clase generica permite usar la estructura Pail para que sea usada 
+ *por cualquier objeto Thrift
+*/
+
 public abstract class ThriftPailStructure<T extends Comparable> 
   implements PailStructure<T> 
 {
+ /*The constructor
+  *of the Thrift
+  *object must be
+  *implemented in
+  *the child class.
+  */
   protected abstract T createThriftObject();
 
+ /*
+  *TSerializer and
+  *TDeserializer are Thrift
+  *utilities for serializing
+  *objects to and from
+  */
   private transient TDeserializer des;
+  private transient TSerializer ser;
 
+
+ /*
+  *The Thrift utilities
+  *are lazily built,
+  *constructed only
+  *when required
+  */
   private TDeserializer getDeserializer() {
     if(des==null) des = new TDeserializer();
     return des;
   }
 
-  public T deserialize(byte[] record) {
+  private TSerializer getSerializer() {
+    if(ser==null) ser = new TSerializer();
+    return ser;
+  }
+
+ public T deserialize(byte[] record) {
+   /*A new
+    *Thrift object is
+    *constructed prior
+    *to deserialization.
+    */
     T ret = createThriftObject();
     try {
       getDeserializer().deserialize((TBase)ret, record);
@@ -30,15 +67,15 @@ public abstract class ThriftPailStructure<T extends Comparable>
     return ret;
   }
 
-  private transient TSerializer ser;
-
-  private TSerializer getSerializer() {
-    if(ser==null) ser = new TSerializer();
-    return ser;
-  }
 
   public byte[] serialize(T obj) {
     try {
+     /*
+      *The object is
+      *cast to a basic
+      *Thrift object for
+      *serialization.
+      */
       return getSerializer().serialize((TBase)obj);
     } catch (TException e) {
       throw new RuntimeException(e);
