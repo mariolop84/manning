@@ -1,6 +1,13 @@
 package java.manning.batchlayer;
+
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import com.backtype.hadoop.pail.Pail;
+import com.backtype.hadoop.pail.Pail.TypedRecordOutputStream;
+import java.manning.tap.SplitDataPailStructure;
+import java.manning.tap.DataPailStructure;
+import java.manning.test.Data;
 
 public class DataSource {
     public static final String ROOT = "/tmp/swaroot/";
@@ -21,17 +28,18 @@ public class DataSource {
         Pail<Data> newPail = Pail.create(NEW_ROOT, new DataPailStructure());
 
         TypedRecordOutputStream os = newPail.openWrite();
-        os.writeObject(makePageview(1, "http://foo.com/post1", 60));
-        os.writeObject(makePageview(3, "http://foo.com/post1", 62));
-        os.writeObject(makePageview(1, "http://foo.com/post1", 4000));
-        os.writeObject(makePageview(1, "http://foo.com/post2", 4000));
-        os.writeObject(makePageview(1, "http://foo.com/post2", 10000));
-        os.writeObject(makePageview(5, "http://foo.com/post3", 10600));
-        os.writeObject(makeEquiv(1, 3));
-        os.writeObject(makeEquiv(3, 5));
+        Data data = new Data();
+        os.writeObject(data.makePageview(1, "http://foo.com/post1", 60));
+        os.writeObject(data.makePageview(3, "http://foo.com/post1", 62));
+        os.writeObject(data.makePageview(1, "http://foo.com/post1", 4000));
+        os.writeObject(data.makePageview(1, "http://foo.com/post2", 4000));
+        os.writeObject(data.makePageview(1, "http://foo.com/post2", 10000));
+        os.writeObject(data.makePageview(5, "http://foo.com/post3", 10600));
+        os.writeObject(data.makeEquiv(1, 3));
+        os.writeObject(data.makeEquiv(3, 5));
 
-        os.writeObject(makePageview(2, "http://foo.com/post1", 60));
-        os.writeObject(makePageview(2, "http://foo.com/post3", 62));
+        os.writeObject(data.makePageview(2, "http://foo.com/post1", 60));
+        os.writeObject(data.makePageview(2, "http://foo.com/post3", 62));
 
         os.close();
 

@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package manning.schema;
+package java.manning.schema;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -140,25 +140,25 @@ public class DataUnit extends org.apache.thrift.TUnion<DataUnit, DataUnit._Field
 
   public static DataUnit person_property(PersonProperty value) {
     DataUnit x = new DataUnit();
-    x.set_person_property(value);
+    x.setPerson_property(value);
     return x;
   }
 
   public static DataUnit page_property(PageProperty value) {
     DataUnit x = new DataUnit();
-    x.set_page_property(value);
+    x.setPage_property(value);
     return x;
   }
 
   public static DataUnit equiv(EquivEdge value) {
     DataUnit x = new DataUnit();
-    x.set_equiv(value);
+    x.setEquiv(value);
     return x;
   }
 
   public static DataUnit page_view(PageViewEdge value) {
     DataUnit x = new DataUnit();
-    x.set_page_view(value);
+    x.setPage_view(value);
     return x;
   }
 
@@ -357,7 +357,7 @@ public class DataUnit extends org.apache.thrift.TUnion<DataUnit, DataUnit._Field
   }
 
 
-  public PersonProperty get_person_property() {
+  public PersonProperty getPerson_property() {
     if (getSetField() == _Fields.PERSON_PROPERTY) {
       return (PersonProperty)getFieldValue();
     } else {
@@ -365,13 +365,13 @@ public class DataUnit extends org.apache.thrift.TUnion<DataUnit, DataUnit._Field
     }
   }
 
-  public void set_person_property(PersonProperty value) {
+  public void setPerson_property(PersonProperty value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.PERSON_PROPERTY;
     value_ = value;
   }
 
-  public PageProperty get_page_property() {
+  public PageProperty getPage_property() {
     if (getSetField() == _Fields.PAGE_PROPERTY) {
       return (PageProperty)getFieldValue();
     } else {
@@ -379,13 +379,13 @@ public class DataUnit extends org.apache.thrift.TUnion<DataUnit, DataUnit._Field
     }
   }
 
-  public void set_page_property(PageProperty value) {
+  public void setPage_property(PageProperty value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.PAGE_PROPERTY;
     value_ = value;
   }
 
-  public EquivEdge get_equiv() {
+  public EquivEdge getEquiv() {
     if (getSetField() == _Fields.EQUIV) {
       return (EquivEdge)getFieldValue();
     } else {
@@ -393,13 +393,13 @@ public class DataUnit extends org.apache.thrift.TUnion<DataUnit, DataUnit._Field
     }
   }
 
-  public void set_equiv(EquivEdge value) {
+  public void setEquiv(EquivEdge value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.EQUIV;
     value_ = value;
   }
 
-  public PageViewEdge get_page_view() {
+  public PageViewEdge getPage_view() {
     if (getSetField() == _Fields.PAGE_VIEW) {
       return (PageViewEdge)getFieldValue();
     } else {
@@ -407,28 +407,28 @@ public class DataUnit extends org.apache.thrift.TUnion<DataUnit, DataUnit._Field
     }
   }
 
-  public void set_page_view(PageViewEdge value) {
+  public void setPage_view(PageViewEdge value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.PAGE_VIEW;
     value_ = value;
   }
 
-  public boolean is_set_person_property() {
+  public boolean isSetPerson_property() {
     return setField_ == _Fields.PERSON_PROPERTY;
   }
 
 
-  public boolean is_set_page_property() {
+  public boolean isSetPage_property() {
     return setField_ == _Fields.PAGE_PROPERTY;
   }
 
 
-  public boolean is_set_equiv() {
+  public boolean isSetEquiv() {
     return setField_ == _Fields.EQUIV;
   }
 
 
-  public boolean is_set_page_view() {
+  public boolean isSetPage_view() {
     return setField_ == _Fields.PAGE_VIEW;
   }
 

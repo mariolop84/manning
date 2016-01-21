@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package manning.schema;
+package java.manning.schema;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -128,13 +128,13 @@ public class OrigSystem extends org.apache.thrift.TUnion<OrigSystem, OrigSystem.
 
   public static OrigSystem page_view(PageViewSystem value) {
     OrigSystem x = new OrigSystem();
-    x.set_page_view(value);
+    x.setPage_view(value);
     return x;
   }
 
   public static OrigSystem external_data(ExternalDataSystem value) {
     OrigSystem x = new OrigSystem();
-    x.set_external_data(value);
+    x.setExternal_data(value);
     return x;
   }
 
@@ -273,7 +273,7 @@ public class OrigSystem extends org.apache.thrift.TUnion<OrigSystem, OrigSystem.
   }
 
 
-  public PageViewSystem get_page_view() {
+  public PageViewSystem getPage_view() {
     if (getSetField() == _Fields.PAGE_VIEW) {
       return (PageViewSystem)getFieldValue();
     } else {
@@ -281,13 +281,13 @@ public class OrigSystem extends org.apache.thrift.TUnion<OrigSystem, OrigSystem.
     }
   }
 
-  public void set_page_view(PageViewSystem value) {
+  public void setPage_view(PageViewSystem value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.PAGE_VIEW;
     value_ = value;
   }
 
-  public ExternalDataSystem get_external_data() {
+  public ExternalDataSystem getExternal_data() {
     if (getSetField() == _Fields.EXTERNAL_DATA) {
       return (ExternalDataSystem)getFieldValue();
     } else {
@@ -295,18 +295,18 @@ public class OrigSystem extends org.apache.thrift.TUnion<OrigSystem, OrigSystem.
     }
   }
 
-  public void set_external_data(ExternalDataSystem value) {
+  public void setExternal_data(ExternalDataSystem value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.EXTERNAL_DATA;
     value_ = value;
   }
 
-  public boolean is_set_page_view() {
+  public boolean isSetPage_view() {
     return setField_ == _Fields.PAGE_VIEW;
   }
 
 
-  public boolean is_set_external_data() {
+  public boolean isSetExternal_data() {
     return setField_ == _Fields.EXTERNAL_DATA;
   }
 

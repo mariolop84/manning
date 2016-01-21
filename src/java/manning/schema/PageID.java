@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package manning.schema;
+package java.manning.schema;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -122,7 +122,7 @@ public class PageID extends org.apache.thrift.TUnion<PageID, PageID._Fields> {
 
   public static PageID url(String value) {
     PageID x = new PageID();
-    x.set_url(value);
+    x.setUrl(value);
     return x;
   }
 
@@ -229,7 +229,7 @@ public class PageID extends org.apache.thrift.TUnion<PageID, PageID._Fields> {
   }
 
 
-  public String get_url() {
+  public String getUrl() {
     if (getSetField() == _Fields.URL) {
       return (String)getFieldValue();
     } else {
@@ -237,13 +237,13 @@ public class PageID extends org.apache.thrift.TUnion<PageID, PageID._Fields> {
     }
   }
 
-  public void set_url(String value) {
+  public void setUrl(String value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.URL;
     value_ = value;
   }
 
-  public boolean is_set_url() {
+  public boolean isSetUrl() {
     return setField_ == _Fields.URL;
   }
 

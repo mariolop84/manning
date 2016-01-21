@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package manning.schema;
+package java.manning.schema;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -122,7 +122,7 @@ public class PagePropertyValue extends org.apache.thrift.TUnion<PagePropertyValu
 
   public static PagePropertyValue page_views(int value) {
     PagePropertyValue x = new PagePropertyValue();
-    x.set_page_views(value);
+    x.setPage_views(value);
     return x;
   }
 
@@ -229,7 +229,7 @@ public class PagePropertyValue extends org.apache.thrift.TUnion<PagePropertyValu
   }
 
 
-  public int get_page_views() {
+  public int getPage_views() {
     if (getSetField() == _Fields.PAGE_VIEWS) {
       return (Integer)getFieldValue();
     } else {
@@ -237,12 +237,12 @@ public class PagePropertyValue extends org.apache.thrift.TUnion<PagePropertyValu
     }
   }
 
-  public void set_page_views(int value) {
+  public void setPage_views(int value) {
     setField_ = _Fields.PAGE_VIEWS;
     value_ = value;
   }
 
-  public boolean is_set_page_views() {
+  public boolean isSetPage_views() {
     return setField_ == _Fields.PAGE_VIEWS;
   }
 

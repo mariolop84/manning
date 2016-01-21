@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package manning.schema;
+package java.manning.schema;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -138,19 +138,19 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
 
   public static PersonPropertyValue full_name(String value) {
     PersonPropertyValue x = new PersonPropertyValue();
-    x.set_full_name(value);
+    x.setFull_name(value);
     return x;
   }
 
   public static PersonPropertyValue gender(GenderType value) {
     PersonPropertyValue x = new PersonPropertyValue();
-    x.set_gender(value);
+    x.setGender(value);
     return x;
   }
 
   public static PersonPropertyValue location(Location value) {
     PersonPropertyValue x = new PersonPropertyValue();
-    x.set_location(value);
+    x.setLocation(value);
     return x;
   }
 
@@ -195,7 +195,7 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
         case GENDER:
           if (field.type == GENDER_FIELD_DESC.type) {
             GenderType gender;
-            gender = manning.schema.GenderType.findByValue(iprot.readI32());
+            gender = java.manning.schema.GenderType.findByValue(iprot.readI32());
             return gender;
           } else {
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
@@ -251,7 +251,7 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
           return full_name;
         case GENDER:
           GenderType gender;
-          gender = manning.schema.GenderType.findByValue(iprot.readI32());
+          gender = java.manning.schema.GenderType.findByValue(iprot.readI32());
           return gender;
         case LOCATION:
           Location location;
@@ -315,7 +315,7 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
   }
 
 
-  public String get_full_name() {
+  public String getFull_name() {
     if (getSetField() == _Fields.FULL_NAME) {
       return (String)getFieldValue();
     } else {
@@ -323,7 +323,7 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
     }
   }
 
-  public void set_full_name(String value) {
+  public void setFull_name(String value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.FULL_NAME;
     value_ = value;
@@ -333,7 +333,7 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
    * 
    * @see GenderType
    */
-  public GenderType get_gender() {
+  public GenderType getGender() {
     if (getSetField() == _Fields.GENDER) {
       return (GenderType)getFieldValue();
     } else {
@@ -345,13 +345,13 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
    * 
    * @see GenderType
    */
-  public void set_gender(GenderType value) {
+  public void setGender(GenderType value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.GENDER;
     value_ = value;
   }
 
-  public Location get_location() {
+  public Location getLocation() {
     if (getSetField() == _Fields.LOCATION) {
       return (Location)getFieldValue();
     } else {
@@ -359,23 +359,23 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
     }
   }
 
-  public void set_location(Location value) {
+  public void setLocation(Location value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.LOCATION;
     value_ = value;
   }
 
-  public boolean is_set_full_name() {
+  public boolean isSetFull_name() {
     return setField_ == _Fields.FULL_NAME;
   }
 
 
-  public boolean is_set_gender() {
+  public boolean isSetGender() {
     return setField_ == _Fields.GENDER;
   }
 
 
-  public boolean is_set_location() {
+  public boolean isSetLocation() {
     return setField_ == _Fields.LOCATION;
   }
 

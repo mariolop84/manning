@@ -1,7 +1,7 @@
-package manning.test;
+package java.manning.test;
 
 
-import manning.schema.*;
+import java.manning.schema.*;
 
 public class Data {
     public static Pedigree makePedigree(int timeSecs) {
@@ -12,8 +12,8 @@ public class Data {
 
     }
 
-    public static manning.schema.Data makePageview(int userid, String url, int timeSecs) {
-        return new manning.schema.Data(makePedigree(timeSecs),
+    public static java.manning.schema.Data makePageview(int userid, String url, int timeSecs) {
+        return new java.manning.schema.Data(makePedigree(timeSecs),
                 DataUnit.page_view(
                         new PageViewEdge(
                                 PersonID.user_id(userid),
@@ -22,8 +22,8 @@ public class Data {
                         )));
     }
 
-    public static manning.schema.Data makeEquiv(int user1, int user2) {
-        return new manning.schema.Data(makePedigree(1000),
+    public static java.manning.schema.Data makeEquiv(int user1, int user2) {
+        return new java.manning.schema.Data(makePedigree(1000),
                 DataUnit.equiv(
                         new EquivEdge(
                                 PersonID.user_id(user1),

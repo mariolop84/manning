@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package manning.schema;
+package java.manning.schema;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -128,13 +128,13 @@ public class PersonID extends org.apache.thrift.TUnion<PersonID, PersonID._Field
 
   public static PersonID cookie(String value) {
     PersonID x = new PersonID();
-    x.set_cookie(value);
+    x.setCookie(value);
     return x;
   }
 
   public static PersonID user_id(long value) {
     PersonID x = new PersonID();
-    x.set_user_id(value);
+    x.setUser_id(value);
     return x;
   }
 
@@ -269,7 +269,7 @@ public class PersonID extends org.apache.thrift.TUnion<PersonID, PersonID._Field
   }
 
 
-  public String get_cookie() {
+  public String getCookie() {
     if (getSetField() == _Fields.COOKIE) {
       return (String)getFieldValue();
     } else {
@@ -277,13 +277,13 @@ public class PersonID extends org.apache.thrift.TUnion<PersonID, PersonID._Field
     }
   }
 
-  public void set_cookie(String value) {
+  public void setCookie(String value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.COOKIE;
     value_ = value;
   }
 
-  public long get_user_id() {
+  public long getUser_id() {
     if (getSetField() == _Fields.USER_ID) {
       return (Long)getFieldValue();
     } else {
@@ -291,17 +291,17 @@ public class PersonID extends org.apache.thrift.TUnion<PersonID, PersonID._Field
     }
   }
 
-  public void set_user_id(long value) {
+  public void setUser_id(long value) {
     setField_ = _Fields.USER_ID;
     value_ = value;
   }
 
-  public boolean is_set_cookie() {
+  public boolean isSetCookie() {
     return setField_ == _Fields.COOKIE;
   }
 
 
-  public boolean is_set_user_id() {
+  public boolean isSetUser_id() {
     return setField_ == _Fields.USER_ID;
   }
 
