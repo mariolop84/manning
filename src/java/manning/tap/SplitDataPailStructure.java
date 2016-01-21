@@ -28,17 +28,8 @@ import org.apache.thrift.meta_data.StructMetaData;
 */
 public class SplitDataPailStructure extends DataPailStructure {
 
- /*
-  *FieldStructure is an interface for both edges
-  *and properties.
-  */
-  protected static interface FieldStructure {
-    public boolean isValidTarget(String[] dirs);
-    public void fillTarget(List<String> ret, Object val);
-  }
   public static HashMap<Short, FieldStructure> validFieldMap =
     new HashMap<Short, FieldStructure>();
-
 
  /*
   *getMetadataMap and getIdForClass are helper functions
@@ -55,102 +46,6 @@ public class SplitDataPailStructure extends DataPailStructure {
     }
   }
 
- /*
-  *Clase para el particionaminto vertical de los Struct o Edges
-  *o Relaciones. Clase trivial porque los struct no se particionan
-  */
-  protected static class EdgeStructure implements FieldStructure {
-    public boolean isValidTarget(String[] dirs) { return true; }
-    public void fillTarget(List<String> ret, Object val) { }
-  }
-
- /*
-  *Clase para hacer el paricionado verrical a las propiedades
-  *Esta crea un conjunto de IDs de Thrift para cada clase propiedad
-  */
-  protected static class PropertyStructure implements FieldStructure {
-
-   /*
-    *Property is a Thrift struct containing a property value
-    *field; this is the ID for that field.
-    */
-    private TFieldIdEnum valueId;
-
-   /*
-    *The set of Thrift IDs of the property
-    *value types
-    */
-    private HashSet<Short> validIds;
-
-  /*
-   *getMetadataMap and getIdForClass are helper functions
-   *for inspecting Thrift objects.
-   */
-   private static TFieldIdEnum getIdForClass(
-      Map<TFieldIdEnum, FieldMetaData> meta,
-      Class toFind) 
-    {
-      for(TFieldIdEnum k: meta.keySet()) {
-        FieldValueMetaData md = meta.get(k).valueMetaData;
-        if(md instanceof StructMetaData) {
-          if(toFind.equals(((StructMetaData) md).structClass)) {
-            return k;
-          }
-        }
-      }
-      throw new RuntimeException("Could not find " + toFind.toString() +
-                                 " in " + meta.toString());
-    }
-
-    public PropertyStructure(Class prop) {
-      try {
-        Map<TFieldIdEnum, FieldMetaData> propMeta = getMetadataMap(prop);
-        Class valClass = Class.forName(prop.getName() + "Value");
-       /*
-        *Parses the Thrift metadata to get the field ID of the
-        *property value
-        */
-        valueId = getIdForClass(propMeta, valClass);
-
-        validIds = new HashSet<Short>();
-        Map<TFieldIdEnum, FieldMetaData> valMeta = getMetadataMap(valClass);
-        for(TFieldIdEnum valId: valMeta.keySet()) {
-         /*
-          *Parses the metadata to get all valid field IDs
-          *of the property value
-          */
-          validIds.add(valId.getThriftFieldId());
-        }
-      } catch(Exception e) {
-        throw new RuntimeException(e);
-      }
-    }
-
-    public boolean isValidTarget(String[] dirs) {
-     /*
-      *The vertical partitioning of a property value has a
-      *depth of at least two.
-      */
-      if(dirs.length<2) return false;
-      try {
-        short s = Short.parseShort(dirs[1]);
-        return validIds.contains(s);
-      } catch(NumberFormatException e) {
-        return false;
-      }
-    }
-  
-    public void fillTarget(List<String> ret, Object val) {
-     /*
-      *Uses the Thrift IDs to create the directory
-      *path for the current fact
-      */
-      ret.add("" + ((TUnion) ((TBase)val)
-              .getFieldValue(valueId))
-              .getSetField()
-              .getThriftFieldId());
-    }
-  }
 
   static {
  /*
