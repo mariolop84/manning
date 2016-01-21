@@ -1,0 +1,7 @@
+build/
+syntax: glob
+*.class
+*.jar
+*.classpath
+*.project
+*.settings
