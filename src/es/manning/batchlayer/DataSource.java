@@ -5,9 +5,9 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import com.backtype.hadoop.pail.Pail;
 import com.backtype.hadoop.pail.Pail.TypedRecordOutputStream;
-import java.manning.tap.SplitDataPailStructure;
-import java.manning.tap.DataPailStructure;
-import java.manning.test.Data;
+import es.manning.tap.SplitDataPailStructure;
+import es.manning.tap.DataPailStructure;
+import es.manning.test.Data;
 
 public class DataSource {
     public static final String ROOT = "/tmp/swaroot/";

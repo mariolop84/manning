@@ -195,7 +195,7 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
         case GENDER:
           if (field.type == GENDER_FIELD_DESC.type) {
             GenderType gender;
-            gender = java.manning.schema.GenderType.findByValue(iprot.readI32());
+            gender = es.manning.schema.GenderType.findByValue(iprot.readI32());
             return gender;
           } else {
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
@@ -251,7 +251,7 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
           return full_name;
         case GENDER:
           GenderType gender;
-          gender = java.manning.schema.GenderType.findByValue(iprot.readI32());
+          gender = es.manning.schema.GenderType.findByValue(iprot.readI32());
           return gender;
         case LOCATION:
           Location location;

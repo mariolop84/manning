@@ -1,6 +1,6 @@
 package es.manning.tap;
 
-import java.manning.tap.FieldStructure;
+import es.manning.tap.FieldStructure;
 
 import java.util.HashSet;
 import java.util.List;

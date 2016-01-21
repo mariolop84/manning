@@ -525,7 +525,7 @@ public class Pedigree implements org.apache.thrift.TBase<Pedigree, Pedigree._Fie
             break;
           case 2: // SOURCE
             if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-              struct.source = java.manning.schema.Source.findByValue(iprot.readI32());
+              struct.source = es.manning.schema.Source.findByValue(iprot.readI32());
               struct.setSourceIsSet(true);
             } else { 
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -598,7 +598,7 @@ public class Pedigree implements org.apache.thrift.TBase<Pedigree, Pedigree._Fie
       TTupleProtocol iprot = (TTupleProtocol) prot;
       struct.true_as_of_secs = iprot.readI32();
       struct.setTrue_as_of_secsIsSet(true);
-      struct.source = java.manning.schema.Source.findByValue(iprot.readI32());
+      struct.source = es.manning.schema.Source.findByValue(iprot.readI32());
       struct.setSourceIsSet(true);
       struct.system = new OrigSystem();
       struct.system.read(iprot);

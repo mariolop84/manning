@@ -1,6 +1,6 @@
 package es.manning.tap;
 
-import java.manning.schema.Data;
+import es.manning.schema.Data;
 /**
 *A basic pail
 *Clase para almacenar el objeto Data a partir de la clase
