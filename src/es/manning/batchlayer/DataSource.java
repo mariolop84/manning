@@ -44,4 +44,8 @@ public class DataSource {
         os.close();
 
     }
+    
+    public static void main(String [ ] args){
+    	DataSource.initTestData();
+    }
 }
