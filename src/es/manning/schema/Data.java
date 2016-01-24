@@ -13,6 +13,7 @@ import org.apache.thrift.scheme.StandardScheme;
 import org.apache.thrift.scheme.TupleScheme;
 import org.apache.thrift.protocol.TTupleProtocol;
 import org.apache.thrift.protocol.TProtocolException;
+import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.thrift.EncodingUtils;
 import org.apache.thrift.TException;
 import org.apache.thrift.async.AsyncMethodCallback;
@@ -348,7 +349,7 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
   }
 
   @Override
-  public String toString() {
+  public String toString() {/*
     StringBuilder sb = new StringBuilder("Data(");
     boolean first = true;
 
@@ -368,7 +369,8 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
     }
     first = false;
     sb.append(")");
-    return sb.toString();
+    return sb.toString();*/
+	return ToStringBuilder.reflectionToString(this);
   }
 
   public void validate() throws org.apache.thrift.TException {
