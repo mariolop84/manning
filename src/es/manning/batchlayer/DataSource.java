@@ -4,6 +4,7 @@ import org.apache.hadoop.fs.FileSystem;
 
 import java.io.IOException;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import com.backtype.hadoop.pail.Pail;
@@ -53,8 +54,7 @@ public class DataSource {
 		System.out.println("DataSource.readLogins: INICIO");
 		Pail<es.manning.schema.Data> dataPail = new Pail<es.manning.schema.Data>(NEW_ROOT);
 		for (es.manning.schema.Data d : dataPail) {
-			System.out.println(d.getDataunit().getPage_view().getPage().getUrl() );
-			System.out.println(d.getDataunit().getPerson_property().getId().getUser_id());
+			System.out.println(d.toString());
 			System.out.println("---------------");
 		}
 		System.out.println("DataSource.readLogins: FIN");
