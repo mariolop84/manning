@@ -8,6 +8,7 @@ public class Principal {
 
 		try {
 			DataSource.initTestData();
+			DataSource.readLogins();
 		} catch (Exception e) {
 
 		}

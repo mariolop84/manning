@@ -19,6 +19,7 @@ public class DataSource {
 	public static final String MASTER_ROOT = DATA_ROOT + "master";
 	public static final String NEW_ROOT = DATA_ROOT + "new";
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void initTestData() throws Exception {
 		FileSystem fs = FileSystem.get(new Configuration());
 		fs.delete(new Path(DATA_ROOT), true);
@@ -26,31 +27,35 @@ public class DataSource {
 		fs.mkdirs(new Path(DATA_ROOT));
 		fs.mkdirs(new Path(OUTPUTS_ROOT + "edb"));
 
-		Pail masterPail = Pail.create(MASTER_ROOT, new SplitDataPailStructure());
+		//Pail masterPail = Pail.create(MASTER_ROOT, new SplitDataPailStructure());
+		
 		Pail<Data> newPail = Pail.create(NEW_ROOT, new DataPailStructure());
 
 		TypedRecordOutputStream os = newPail.openWrite();
-		Data data = new Data();
-		os.writeObject(data.makePageview(1, "http://foo.com/post1", 60));
-		os.writeObject(data.makePageview(3, "http://foo.com/post1", 62));
-		os.writeObject(data.makePageview(1, "http://foo.com/post1", 4000));
-		os.writeObject(data.makePageview(1, "http://foo.com/post2", 4000));
-		os.writeObject(data.makePageview(1, "http://foo.com/post2", 10000));
-		os.writeObject(data.makePageview(5, "http://foo.com/post3", 10600));
-		os.writeObject(data.makeEquiv(1, 3));
-		os.writeObject(data.makeEquiv(3, 5));
+		
+		os.writeObject(Data.makePageview(1, "http://foo.com/post1", 60));
+		os.writeObject(Data.makePageview(3, "http://foo.com/post1", 62));
+		os.writeObject(Data.makePageview(1, "http://foo.com/post1", 4000));
+		os.writeObject(Data.makePageview(1, "http://foo.com/post2", 4000));
+		os.writeObject(Data.makePageview(1, "http://foo.com/post2", 10000));
+		os.writeObject(Data.makePageview(5, "http://foo.com/post3", 10600));
+		os.writeObject(Data.makeEquiv(1, 3));
+		os.writeObject(Data.makeEquiv(3, 5));
 
-		os.writeObject(data.makePageview(2, "http://foo.com/post1", 60));
-		os.writeObject(data.makePageview(2, "http://foo.com/post3", 62));
+		os.writeObject(Data.makePageview(2, "http://foo.com/post1", 60));
+		os.writeObject(Data.makePageview(2, "http://foo.com/post3", 62));
 
 		os.close();
 
 	}
 
 	public static void readLogins() throws IOException {
-		Pail<Data> dataPail = new Pail<Data>("/tmp/swaroot");
-		for (Data d : dataPail) {
-			//System.out.println(l. + " " + l.loginUnixTime);
+		Pail<es.manning.schema.Data> dataPail = new Pail<es.manning.schema.Data>("/tmp/swaroot");
+		for (es.manning.schema.Data d : dataPail) {
+			System.out.println(d.getDataunit().getPage_view().getPage().getUrl() );
+			System.out.println(d.getDataunit().getEquiv().getId1());
+			System.out.println(d.getDataunit().getEquiv().getId2());
+			System.out.println("---------------");
 		}
 	}
 }
