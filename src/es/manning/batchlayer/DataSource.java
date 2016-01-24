@@ -54,8 +54,7 @@ public class DataSource {
 		Pail<es.manning.schema.Data> dataPail = new Pail<es.manning.schema.Data>(NEW_ROOT);
 		for (es.manning.schema.Data d : dataPail) {
 			System.out.println(d.getDataunit().getPage_view().getPage().getUrl() );
-			System.out.println(d.getDataunit().getEquiv().getId1());
-			System.out.println(d.getDataunit().getEquiv().getId2());
+			System.out.println(d.getDataunit().getPerson_property().getId().getUser_id());
 			System.out.println("---------------");
 		}
 		System.out.println("DataSource.readLogins: FIN");
