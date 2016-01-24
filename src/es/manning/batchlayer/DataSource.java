@@ -50,6 +50,7 @@ public class DataSource {
 	}
 
 	public static void readLogins() throws IOException {
+		System.out.println("DataSource.readLogins: INICIO");
 		Pail<es.manning.schema.Data> dataPail = new Pail<es.manning.schema.Data>("/tmp/swaroot");
 		for (es.manning.schema.Data d : dataPail) {
 			System.out.println(d.getDataunit().getPage_view().getPage().getUrl() );
@@ -57,5 +58,6 @@ public class DataSource {
 			System.out.println(d.getDataunit().getEquiv().getId2());
 			System.out.println("---------------");
 		}
+		System.out.println("DataSource.readLogins: FIN");
 	}
 }
