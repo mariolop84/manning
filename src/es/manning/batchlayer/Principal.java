@@ -12,7 +12,7 @@ public class Principal {
 			DataSource.readLogins();
 			System.out.println("fin");
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 
 	}
