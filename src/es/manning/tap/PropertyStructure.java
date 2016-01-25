@@ -95,6 +95,8 @@ public class PropertyStructure implements FieldStructure {
     *The vertical partitioning of a property value has a
     *depth of at least two.
     */
+    System.out.println("PropertyStructure.isValidTarget: ... INICIO");
+    System.out.println("dirs: " + dirs.length);
     if(dirs.length<2) return false;
     try {
       short s = Short.parseShort(dirs[1]);

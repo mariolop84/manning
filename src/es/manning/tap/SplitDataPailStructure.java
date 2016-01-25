@@ -82,6 +82,8 @@ public class SplitDataPailStructure extends DataPailStructure {
   
   @Override
   public boolean isValidTarget(String[] dirs) {
+    System.out.println("SplitDataPailStructure.isValidTarget: ... INICIO");
+    System.out.println("dirs: " + dirs.length);
     if(dirs.length==0) return false;
     try {
       short id = Short.parseShort(dirs[0]);
@@ -91,9 +93,11 @@ public class SplitDataPailStructure extends DataPailStructure {
       *DataUnit field ID is in the field map.
       *Any additional checks are passed to the
       *FieldStructure.
-      */
-      if(s==null) return false;
-      else return s.isValidTarget(dirs);
+      */      
+      if(s==null) 
+	return false;
+      else 
+	return s.isValidTarget(dirs);
     } catch(NumberFormatException e) {
       return false;
     }
@@ -101,6 +105,7 @@ public class SplitDataPailStructure extends DataPailStructure {
 
   @Override
   public List<String> getTarget(Data object) {
+    System.out.println("SplitDataPailStructure.getTarget: ... INICIO");
     List<String> ret = new ArrayList<String>();
     DataUnit du = object.getDataunit();
     short id = du.getSetField().getThriftFieldId();

@@ -1,6 +1,8 @@
 package es.manning.tap;
 
 import es.manning.schema.Data;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * A basic pail Clase para almacenar el objeto Data a partir de la clase
@@ -24,5 +26,15 @@ public class DataPailStructure extends ThriftPailStructure<Data> {
 	@SuppressWarnings("rawtypes")
 	public Class getType() {
 		return Data.class;
+	}
+
+	@Override
+	public List<String> getTarget(Data object) {
+		return Collections.EMPTY_LIST;
+	}
+	
+	@Override
+	public boolean isValidTarget(String... dirs) {
+		return true;
 	}
 }

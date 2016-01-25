@@ -9,7 +9,7 @@ public class Principal {
 		try {
 			System.out.println("Inicio");
 			DataSource.initTestData();
-			DataSource.readLogins();
+			//DataSource.readLogins();
 			System.out.println("fin");
 		} catch (Exception e) {
 			e.printStackTrace();
