@@ -30,11 +30,13 @@ public class DataPailStructure extends ThriftPailStructure<Data> {
 
 	@Override
 	public List<String> getTarget(Data object) {
+		System.out.println("DataPailStructure.getTarget: ... INICIO");
 		return Collections.EMPTY_LIST;
 	}
 	
 	@Override
 	public boolean isValidTarget(String... dirs) {
+		System.out.println("DataPailStructure.isValidTarget: ... INICIO");
 		return true;
 	}
 }

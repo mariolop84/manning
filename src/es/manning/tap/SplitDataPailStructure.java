@@ -81,7 +81,7 @@ public class SplitDataPailStructure extends DataPailStructure {
   // methods are from SplitDataPailStructure
   
   @Override
-  public boolean isValidTarget(String[] dirs) {
+  public boolean isValidTarget(String... dirs) {
     System.out.println("SplitDataPailStructure.isValidTarget: ... INICIO");
     System.out.println("dirs: " + dirs.length);
     if(dirs.length==0) return false;
