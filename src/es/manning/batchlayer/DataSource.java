@@ -31,7 +31,7 @@ public class DataSource {
 		//Pail masterPail = Pail.create(MASTER_ROOT, new SplitDataPailStructure());
 		
 		//Pail<Data> newPail = Pail.create(NEW_ROOT, new DataPailStructure());
-		Pail<Data> newPail = Pail.create(NEW_ROOT, new SplitDataPailStructure());
+		Pail<es.manning.test.Data> newPail = Pail.create(NEW_ROOT, new SplitDataPailStructure());
 
 		TypedRecordOutputStream os = newPail.openWrite();
 		
@@ -56,7 +56,6 @@ public class DataSource {
 		Pail<es.manning.schema.Data> dataPail = new Pail<es.manning.schema.Data>(NEW_ROOT);
 		for (es.manning.schema.Data d : dataPail) {
 			System.out.println(d.toString());
-			System.out.println("---------------");
 		}
 		System.out.println("DataSource.readLogins: FIN");
 	}

@@ -18,4 +18,18 @@ public class Data {
 				DataUnit.equiv(new EquivEdge(PersonID.user_id(user1), PersonID.user_id(user2))));
 	}
 
+	public static es.manning.schema.Data makePersonProperty (
+		int userid, String full_name, GenderType gender, String city, String state, String country){
+		return new 
+			es.manning.schema.Data(
+				makePedigree(1000), 
+				DataUnit.person_property(
+					new PersonProperty(
+						PersonID.user_id(userid), 
+						null
+					)
+				)
+			);
+	}
+
 }
