@@ -380,6 +380,9 @@ public class PersonProperty implements org.apache.thrift.TBase<PersonProperty, P
       throw new org.apache.thrift.protocol.TProtocolException("Required field 'property' was not present! Struct: " + toString());
     }
     // check for sub-struct validity
+    if (property != null) {
+      property.validate();
+    }
   }
 
   private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {

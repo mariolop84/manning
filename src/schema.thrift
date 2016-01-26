@@ -28,7 +28,7 @@ struct Full_nameType {
   1: string full_name;
 }
 
-union PersonPropertyValue {
+struct PersonPropertyValue {
   1: Full_nameType full_nameType;
   2: Gender gender;
   3: Location location;
