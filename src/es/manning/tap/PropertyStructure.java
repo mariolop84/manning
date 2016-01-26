@@ -97,6 +97,9 @@ public class PropertyStructure implements FieldStructure {
     */
     System.out.println("PropertyStructure.isValidTarget: ... INICIO");
     System.out.println("dirs: " + dirs.length);
+    for(String val: dirs){
+      System.out.println(val);
+    }
     if(dirs.length<2) return false;
     try {
       short s = Short.parseShort(dirs[1]);
