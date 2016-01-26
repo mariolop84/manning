@@ -18,18 +18,23 @@ public class Data {
 				DataUnit.equiv(new EquivEdge(PersonID.user_id(user1), PersonID.user_id(user2))));
 	}
 
-	public static es.manning.schema.Data makePersonProperty (
-		int userid, String full_name, GenderType gender, String city, String state, String country){
+	public static es.manning.schema.Data makePersonProperty (int userid, String full_name, GenderType gender, String city, String state, String country){
+		PersonPropertyValue personPropertyValue = new PersonPropertyValue ();
+		Location location = new Location();
+		location.setCity(city);
+		location.setState(state);
+		location.setCountry(country);
+		personPropertyValue.setFull_name(full_name);
+		personPropertyValue.setGender(gender);
+		personPropertyValue.setLocation(location);
 		return new 
 			es.manning.schema.Data(
 				makePedigree(1000), 
 				DataUnit.person_property(
 					new PersonProperty(
 						PersonID.user_id(userid), 
-						null
-					)
-				)
+						personPropertyValue
+						))
 			);
 	}
-
 }

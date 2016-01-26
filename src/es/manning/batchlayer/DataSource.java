@@ -12,6 +12,7 @@ import com.backtype.hadoop.pail.Pail.TypedRecordOutputStream;
 import es.manning.tap.SplitDataPailStructure;
 import es.manning.tap.DataPailStructure;
 import es.manning.test.Data;
+import es.manning.schema.*;
 
 public class DataSource {
 	public static final String ROOT = "/tmp/swaroot/";
@@ -46,6 +47,8 @@ public class DataSource {
 
 		os.writeObject(Data.makePageview(2, "http://foo.com/post1", 60));
 		os.writeObject(Data.makePageview(2, "http://foo.com/post3", 62));
+		os.writeObject(Data.makePersonProperty(1, "Pepito", GenderType.MALE, "Miami", "FL", "USA"));
+		os.writeObject(Data.makePersonProperty(2, "Pepita", GenderType.FEMALE, "LA", "California", "USA"));
 
 		os.close();
 
