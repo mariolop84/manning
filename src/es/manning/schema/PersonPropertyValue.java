@@ -49,7 +49,7 @@ public class PersonPropertyValue implements org.apache.thrift.TBase<PersonProper
   }
 
   public Full_nameType full_nameType; // required
-  public Gender gender; // required
+  public GenderType gender; // required
   public Location location; // required
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
@@ -123,7 +123,7 @@ public class PersonPropertyValue implements org.apache.thrift.TBase<PersonProper
     tmpMap.put(_Fields.FULL_NAME_TYPE, new org.apache.thrift.meta_data.FieldMetaData("full_nameType", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, Full_nameType.class)));
     tmpMap.put(_Fields.GENDER, new org.apache.thrift.meta_data.FieldMetaData("gender", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, Gender.class)));
+        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, GenderType.class)));
     tmpMap.put(_Fields.LOCATION, new org.apache.thrift.meta_data.FieldMetaData("location", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, Location.class)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
@@ -135,7 +135,7 @@ public class PersonPropertyValue implements org.apache.thrift.TBase<PersonProper
 
   public PersonPropertyValue(
     Full_nameType full_nameType,
-    Gender gender,
+    GenderType gender,
     Location location)
   {
     this();
@@ -152,7 +152,7 @@ public class PersonPropertyValue implements org.apache.thrift.TBase<PersonProper
       this.full_nameType = new Full_nameType(other.full_nameType);
     }
     if (other.isSetGender()) {
-      this.gender = new Gender(other.gender);
+      this.gender = new GenderType(other.gender);
     }
     if (other.isSetLocation()) {
       this.location = new Location(other.location);
@@ -194,11 +194,11 @@ public class PersonPropertyValue implements org.apache.thrift.TBase<PersonProper
     }
   }
 
-  public Gender getGender() {
+  public GenderType getGender() {
     return this.gender;
   }
 
-  public PersonPropertyValue setGender(Gender gender) {
+  public PersonPropertyValue setGender(GenderType gender) {
     this.gender = gender;
     return this;
   }
@@ -256,7 +256,7 @@ public class PersonPropertyValue implements org.apache.thrift.TBase<PersonProper
       if (value == null) {
         unsetGender();
       } else {
-        setGender((Gender)value);
+        setGender((GenderType)value);
       }
       break;
 
@@ -512,7 +512,7 @@ public class PersonPropertyValue implements org.apache.thrift.TBase<PersonProper
             break;
           case 2: // GENDER
             if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-              struct.gender = new Gender();
+              struct.gender = new GenderType();
               struct.gender.read(iprot);
               struct.setGenderIsSet(true);
             } else { 
@@ -607,7 +607,7 @@ public class PersonPropertyValue implements org.apache.thrift.TBase<PersonProper
         struct.setFull_nameTypeIsSet(true);
       }
       if (incoming.get(1)) {
-        struct.gender = new Gender();
+        struct.gender = new GenderType();
         struct.gender.read(iprot);
         struct.setGenderIsSet(true);
       }

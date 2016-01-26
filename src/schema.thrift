@@ -15,13 +15,13 @@ struct Location {
   3: optional string country;
 }
 
-enum GenderType {
+enum Gender {
   MALE = 1,
   FEMALE = 2
 }
 
-struct Gender {
-  1: GenderType genderType;
+struct GenderType {
+  1: Gender gender;
 }
 
 struct Full_nameType {
@@ -30,7 +30,7 @@ struct Full_nameType {
 
 struct PersonPropertyValue {
   1: Full_nameType full_nameType;
-  2: Gender gender;
+  2: GenderType gender;
   3: Location location;
 }
 
