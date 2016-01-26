@@ -17,7 +17,7 @@ public class Data {
 		return new es.manning.schema.Data(makePedigree(1000),
 				DataUnit.equiv(new EquivEdge(PersonID.user_id(user1), PersonID.user_id(user2))));
 	}
-
+/*
 	public static es.manning.schema.Data makePersonProperty (int userid, String full_name, Gender gender, String city, String state, String country){
 		Location location = new Location();
 		location.setCity(city);
@@ -34,5 +34,5 @@ public class Data {
 									location) )
 						))
 			);
-	}
+	}*/
 }
