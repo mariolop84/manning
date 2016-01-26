@@ -36,17 +36,13 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings({"cast", "rawtypes", "serial", "unchecked"})
 public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonPropertyValue, PersonPropertyValue._Fields> {
   private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("PersonPropertyValue");
-  private static final org.apache.thrift.protocol.TField FULL_NAME_FIELD_DESC = new org.apache.thrift.protocol.TField("full_name", org.apache.thrift.protocol.TType.STRING, (short)1);
-  private static final org.apache.thrift.protocol.TField GENDER_FIELD_DESC = new org.apache.thrift.protocol.TField("gender", org.apache.thrift.protocol.TType.I32, (short)2);
+  private static final org.apache.thrift.protocol.TField FULL_NAME_TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("full_nameType", org.apache.thrift.protocol.TType.STRUCT, (short)1);
+  private static final org.apache.thrift.protocol.TField GENDER_FIELD_DESC = new org.apache.thrift.protocol.TField("gender", org.apache.thrift.protocol.TType.STRUCT, (short)2);
   private static final org.apache.thrift.protocol.TField LOCATION_FIELD_DESC = new org.apache.thrift.protocol.TField("location", org.apache.thrift.protocol.TType.STRUCT, (short)3);
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-    FULL_NAME((short)1, "full_name"),
-    /**
-     * 
-     * @see GenderType
-     */
+    FULL_NAME_TYPE((short)1, "full_nameType"),
     GENDER((short)2, "gender"),
     LOCATION((short)3, "location");
 
@@ -63,8 +59,8 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
      */
     public static _Fields findByThriftId(int fieldId) {
       switch(fieldId) {
-        case 1: // FULL_NAME
-          return FULL_NAME;
+        case 1: // FULL_NAME_TYPE
+          return FULL_NAME_TYPE;
         case 2: // GENDER
           return GENDER;
         case 3: // LOCATION
@@ -111,10 +107,10 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
   public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
   static {
     Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
-    tmpMap.put(_Fields.FULL_NAME, new org.apache.thrift.meta_data.FieldMetaData("full_name", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+    tmpMap.put(_Fields.FULL_NAME_TYPE, new org.apache.thrift.meta_data.FieldMetaData("full_nameType", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, Full_nameType.class)));
     tmpMap.put(_Fields.GENDER, new org.apache.thrift.meta_data.FieldMetaData("gender", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-        new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, GenderType.class)));
+        new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, Gender.class)));
     tmpMap.put(_Fields.LOCATION, new org.apache.thrift.meta_data.FieldMetaData("location", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, Location.class)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
@@ -136,13 +132,13 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
     return new PersonPropertyValue(this);
   }
 
-  public static PersonPropertyValue full_name(String value) {
+  public static PersonPropertyValue full_nameType(Full_nameType value) {
     PersonPropertyValue x = new PersonPropertyValue();
-    x.setFull_name(value);
+    x.setFull_nameType(value);
     return x;
   }
 
-  public static PersonPropertyValue gender(GenderType value) {
+  public static PersonPropertyValue gender(Gender value) {
     PersonPropertyValue x = new PersonPropertyValue();
     x.setGender(value);
     return x;
@@ -158,16 +154,16 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
   @Override
   protected void checkType(_Fields setField, Object value) throws ClassCastException {
     switch (setField) {
-      case FULL_NAME:
-        if (value instanceof String) {
+      case FULL_NAME_TYPE:
+        if (value instanceof Full_nameType) {
           break;
         }
-        throw new ClassCastException("Was expecting value of type String for field 'full_name', but got " + value.getClass().getSimpleName());
+        throw new ClassCastException("Was expecting value of type Full_nameType for field 'full_nameType', but got " + value.getClass().getSimpleName());
       case GENDER:
-        if (value instanceof GenderType) {
+        if (value instanceof Gender) {
           break;
         }
-        throw new ClassCastException("Was expecting value of type GenderType for field 'gender', but got " + value.getClass().getSimpleName());
+        throw new ClassCastException("Was expecting value of type Gender for field 'gender', but got " + value.getClass().getSimpleName());
       case LOCATION:
         if (value instanceof Location) {
           break;
@@ -183,19 +179,21 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
     _Fields setField = _Fields.findByThriftId(field.id);
     if (setField != null) {
       switch (setField) {
-        case FULL_NAME:
-          if (field.type == FULL_NAME_FIELD_DESC.type) {
-            String full_name;
-            full_name = iprot.readString();
-            return full_name;
+        case FULL_NAME_TYPE:
+          if (field.type == FULL_NAME_TYPE_FIELD_DESC.type) {
+            Full_nameType full_nameType;
+            full_nameType = new Full_nameType();
+            full_nameType.read(iprot);
+            return full_nameType;
           } else {
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
             return null;
           }
         case GENDER:
           if (field.type == GENDER_FIELD_DESC.type) {
-            GenderType gender;
-            gender = es.manning.schema.GenderType.findByValue(iprot.readI32());
+            Gender gender;
+            gender = new Gender();
+            gender.read(iprot);
             return gender;
           } else {
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, field.type);
@@ -223,13 +221,13 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
   @Override
   protected void standardSchemeWriteValue(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
     switch (setField_) {
-      case FULL_NAME:
-        String full_name = (String)value_;
-        oprot.writeString(full_name);
+      case FULL_NAME_TYPE:
+        Full_nameType full_nameType = (Full_nameType)value_;
+        full_nameType.write(oprot);
         return;
       case GENDER:
-        GenderType gender = (GenderType)value_;
-        oprot.writeI32(gender.getValue());
+        Gender gender = (Gender)value_;
+        gender.write(oprot);
         return;
       case LOCATION:
         Location location = (Location)value_;
@@ -245,13 +243,15 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
     _Fields setField = _Fields.findByThriftId(fieldID);
     if (setField != null) {
       switch (setField) {
-        case FULL_NAME:
-          String full_name;
-          full_name = iprot.readString();
-          return full_name;
+        case FULL_NAME_TYPE:
+          Full_nameType full_nameType;
+          full_nameType = new Full_nameType();
+          full_nameType.read(iprot);
+          return full_nameType;
         case GENDER:
-          GenderType gender;
-          gender = es.manning.schema.GenderType.findByValue(iprot.readI32());
+          Gender gender;
+          gender = new Gender();
+          gender.read(iprot);
           return gender;
         case LOCATION:
           Location location;
@@ -269,13 +269,13 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
   @Override
   protected void tupleSchemeWriteValue(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
     switch (setField_) {
-      case FULL_NAME:
-        String full_name = (String)value_;
-        oprot.writeString(full_name);
+      case FULL_NAME_TYPE:
+        Full_nameType full_nameType = (Full_nameType)value_;
+        full_nameType.write(oprot);
         return;
       case GENDER:
-        GenderType gender = (GenderType)value_;
-        oprot.writeI32(gender.getValue());
+        Gender gender = (Gender)value_;
+        gender.write(oprot);
         return;
       case LOCATION:
         Location location = (Location)value_;
@@ -289,8 +289,8 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
   @Override
   protected org.apache.thrift.protocol.TField getFieldDesc(_Fields setField) {
     switch (setField) {
-      case FULL_NAME:
-        return FULL_NAME_FIELD_DESC;
+      case FULL_NAME_TYPE:
+        return FULL_NAME_TYPE_FIELD_DESC;
       case GENDER:
         return GENDER_FIELD_DESC;
       case LOCATION:
@@ -315,37 +315,29 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
   }
 
 
-  public String getFull_name() {
-    if (getSetField() == _Fields.FULL_NAME) {
-      return (String)getFieldValue();
+  public Full_nameType getFull_nameType() {
+    if (getSetField() == _Fields.FULL_NAME_TYPE) {
+      return (Full_nameType)getFieldValue();
     } else {
-      throw new RuntimeException("Cannot get field 'full_name' because union is currently set to " + getFieldDesc(getSetField()).name);
+      throw new RuntimeException("Cannot get field 'full_nameType' because union is currently set to " + getFieldDesc(getSetField()).name);
     }
   }
 
-  public void setFull_name(String value) {
+  public void setFull_nameType(Full_nameType value) {
     if (value == null) throw new NullPointerException();
-    setField_ = _Fields.FULL_NAME;
+    setField_ = _Fields.FULL_NAME_TYPE;
     value_ = value;
   }
 
-  /**
-   * 
-   * @see GenderType
-   */
-  public GenderType getGender() {
+  public Gender getGender() {
     if (getSetField() == _Fields.GENDER) {
-      return (GenderType)getFieldValue();
+      return (Gender)getFieldValue();
     } else {
       throw new RuntimeException("Cannot get field 'gender' because union is currently set to " + getFieldDesc(getSetField()).name);
     }
   }
 
-  /**
-   * 
-   * @see GenderType
-   */
-  public void setGender(GenderType value) {
+  public void setGender(Gender value) {
     if (value == null) throw new NullPointerException();
     setField_ = _Fields.GENDER;
     value_ = value;
@@ -365,8 +357,8 @@ public class PersonPropertyValue extends org.apache.thrift.TUnion<PersonProperty
     value_ = value;
   }
 
-  public boolean isSetFull_name() {
-    return setField_ == _Fields.FULL_NAME;
+  public boolean isSetFull_nameType() {
+    return setField_ == _Fields.FULL_NAME_TYPE;
   }
 
 

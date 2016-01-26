@@ -1,4 +1,4 @@
-namespace java java.manning.schema
+namespace java es.manning.schema
 
 union PersonID {
   1: string cookie;
@@ -20,9 +20,17 @@ enum GenderType {
   FEMALE = 2
 }
 
-union PersonPropertyValue {
+struct Gender {
+  1: GenderType genderType;
+}
+
+struct Full_nameType {
   1: string full_name;
-  2: GenderType gender;
+}
+
+union PersonPropertyValue {
+  1: Full_nameType full_nameType;
+  2: Gender gender;
   3: Location location;
 }
 

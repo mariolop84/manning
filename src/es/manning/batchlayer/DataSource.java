@@ -32,7 +32,7 @@ public class DataSource {
 		//Pail masterPail = Pail.create(MASTER_ROOT, new SplitDataPailStructure());
 		
 		//Pail<Data> newPail = Pail.create(NEW_ROOT, new DataPailStructure());
-		Pail<es.manning.test.Data> newPail = Pail.create(NEW_ROOT, new SplitDataPailStructure());
+		Pail<es.manning.schema.Data> newPail = Pail.create(NEW_ROOT, new SplitDataPailStructure());
 
 		TypedRecordOutputStream os = newPail.openWrite();
 		
