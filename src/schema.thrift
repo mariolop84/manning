@@ -1,4 +1,4 @@
-namespace java java.manning.schema
+namespace java es.manning.schema
 
 union PersonID {
   1: string cookie;

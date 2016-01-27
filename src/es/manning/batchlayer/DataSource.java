@@ -12,6 +12,7 @@ import com.backtype.hadoop.pail.Pail.TypedRecordOutputStream;
 import es.manning.tap.SplitDataPailStructure;
 import es.manning.tap.DataPailStructure;
 import es.manning.test.Data;
+import es.manning.schema.*;
 
 public class DataSource {
 	public static final String ROOT = "/tmp/swaroot/";
@@ -30,7 +31,8 @@ public class DataSource {
 
 		//Pail masterPail = Pail.create(MASTER_ROOT, new SplitDataPailStructure());
 		
-		Pail<Data> newPail = Pail.create(NEW_ROOT, new DataPailStructure());
+		//Pail<Data> newPail = Pail.create(NEW_ROOT, new DataPailStructure());
+		Pail<es.manning.schema.Data> newPail = Pail.create(NEW_ROOT, new SplitDataPailStructure());
 
 		TypedRecordOutputStream os = newPail.openWrite();
 		
@@ -45,7 +47,12 @@ public class DataSource {
 
 		os.writeObject(Data.makePageview(2, "http://foo.com/post1", 60));
 		os.writeObject(Data.makePageview(2, "http://foo.com/post3", 62));
-
+	        os.writeObject(Data.makePersonPropertyValueFull_name(1, "Pepito"));
+	        os.writeObject(Data.makePersonPropertyValueFull_name(2, "Pepita"));
+        	os.writeObject(Data.makePersonPropertyValueGender(1, GenderType.MALE));
+	        os.writeObject(Data.makePersonPropertyValueGender(2, GenderType.FEMALE));
+        	os.writeObject(Data.makePersonPropertyValueLocation(1, "Miami", "FL", "USA"));
+	        os.writeObject(Data.makePersonPropertyValueLocation(2,  "LA", "California", "USA"));
 		os.close();
 
 	}
@@ -55,7 +62,6 @@ public class DataSource {
 		Pail<es.manning.schema.Data> dataPail = new Pail<es.manning.schema.Data>(NEW_ROOT);
 		for (es.manning.schema.Data d : dataPail) {
 			System.out.println(d.toString());
-			System.out.println("---------------");
 		}
 		System.out.println("DataSource.readLogins: FIN");
 	}

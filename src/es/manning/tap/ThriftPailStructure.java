@@ -83,10 +83,12 @@ public abstract class ThriftPailStructure<T extends Comparable>
   }
 
   public boolean isValidTarget(String... dirs) {
+    System.out.println("ThriftPailStructure.isValidTarget: INICIO");
     return true;
   }
 
   public List<String> getTarget(T object) {
+    System.out.println("ThriftPailStructure.getTarget: INICIO");
     return Collections.EMPTY_LIST;
   }
 }

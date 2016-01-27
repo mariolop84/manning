@@ -18,4 +18,40 @@ public class Data {
 				DataUnit.equiv(new EquivEdge(PersonID.user_id(user1), PersonID.user_id(user2))));
 	}
 
+	public static es.manning.schema.Data makePersonPropertyValueFull_name (int userid, String full_name){
+                return new
+                        es.manning.schema.Data(
+                                makePedigree(1000),
+                                DataUnit.person_property(new PersonProperty(
+                                                        PersonID.user_id(userid),
+                                                        PersonPropertyValue.full_name(full_name)
+                                                ))
+                        );
+        }
+        
+        public static es.manning.schema.Data makePersonPropertyValueGender (int userid, GenderType gender){
+                return new
+                        es.manning.schema.Data(
+                                makePedigree(1000),
+                                DataUnit.person_property(new PersonProperty(
+                                                        PersonID.user_id(userid),
+                                                        PersonPropertyValue.gender(gender)
+                                                ))
+                        );
+        }
+        
+        public static es.manning.schema.Data makePersonPropertyValueLocation (int userid, String city, String state, String country){
+                Location location = new Location();
+                location.setCity(city);
+                location.setState(state);
+                location.setCountry(country);
+                return new
+                        es.manning.schema.Data(
+                                makePedigree(1000),
+                                DataUnit.person_property(new PersonProperty(
+                                                        PersonID.user_id(userid),
+                                                        PersonPropertyValue.location(location)
+                                                ))
+                        );
+        }
 }
