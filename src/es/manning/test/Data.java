@@ -19,39 +19,13 @@ public class Data {
 	}
 
 	public static es.manning.schema.Data makePersonProperty (int userid, String full_name, GenderType gender, String city, String state, String country){
-		Location location = new Location();
-		location.setCity(city);
-		location.setState(state);
-		location.setCountry(country);
-		PersonPropertyValue personPropertyValue = new PersonPropertyValue();
-		personPropertyValue.setFull_name(full_name);
-		personPropertyValue.setGender(gender);
-		personPropertyValue.setLocation(location);
 		return new 
 			es.manning.schema.Data(
 				makePedigree(1000), 
 				DataUnit.person_property(new PersonProperty(
 							PersonID.user_id(userid),
-							personPropertyValue
+							PersonPropertyValue.full_name(full_name)
 						))
 			);
 	}
-/*
-	public static es.manning.schema.Data makePersonProperty (int userid, String full_name, Gender gender, String city, String state, String country){
-		Location location = new Location();
-		location.setCity(city);
-		location.setState(state);
-		location.setCountry(country);
-		return new 
-			es.manning.schema.Data(
-				makePedigree(1000), 
-				DataUnit.person_property(
-					new PersonProperty(
-						PersonID.user_id(userid), 
-						(new PersonPropertyValue(new Full_nameType(full_name),
-									 new GenderType(gender),
-									location) )
-						))
-			);
-	}*/
 }

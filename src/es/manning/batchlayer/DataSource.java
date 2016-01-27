@@ -58,7 +58,7 @@ public class DataSource {
 		System.out.println("DataSource.readLogins: INICIO");
 		Pail<es.manning.schema.Data> dataPail = new Pail<es.manning.schema.Data>(NEW_ROOT);
 		for (es.manning.schema.Data d : dataPail) {
-		//	System.out.println(d.toString());
+			System.out.println(d.toString());
 		}
 		System.out.println("DataSource.readLogins: FIN");
 	}

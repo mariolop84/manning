@@ -114,6 +114,11 @@ public class PropertyStructure implements FieldStructure {
     *Uses the Thrift IDs to create the directory
     *path for the current fact
     */
+    System.out.println("PropertyStructure.fillTarget: ... INICIO");
+    System.out.println("ret: " + ret.size());
+    for(String valor: ret){
+      System.out.println(valor);
+    }
     ret.add("" + ((TUnion) ((TBase)val)
             .getFieldValue(valueId))
             .getSetField()
