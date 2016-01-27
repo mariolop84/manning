@@ -47,9 +47,12 @@ public class DataSource {
 
 		os.writeObject(Data.makePageview(2, "http://foo.com/post1", 60));
 		os.writeObject(Data.makePageview(2, "http://foo.com/post3", 62));
-		os.writeObject(Data.makePersonProperty(1, "Pepito", GenderType.MALE, "Miami", "FL", "USA"));
-		os.writeObject(Data.makePersonProperty(2, "Pepita", GenderType.FEMALE, "LA", "California", "USA"));
-
+	        os.writeObject(Data.makePersonPropertyValueFull_name(1, "Pepito"));
+	        os.writeObject(Data.makePersonPropertyValueFull_name(2, "Pepita"));
+        	os.writeObject(Data.makePersonPropertyValueGender(1, GenderType.MALE));
+	        os.writeObject(Data.makePersonPropertyValueGender(2, GenderType.FEMALE));
+        	os.writeObject(Data.makePersonPropertyValueLocation(1, "Miami", "FL", "USA"));
+	        os.writeObject(Data.makePersonPropertyValueLocation(2,  "LA", "California", "USA"));
 		os.close();
 
 	}

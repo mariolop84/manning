@@ -104,8 +104,8 @@ public class SplitDataPailStructure extends DataPailStructure {
 
   @Override
   public List<String> getTarget(Data object) {
-    System.out.println("SplitDataPailStructure.getTarget: ... INICIO");
-    System.out.println("Object: "+object.getClass().getName());
+    /*System.out.println("SplitDataPailStructure.getTarget: ... INICIO");
+    System.out.println("Object: "+object.getClass().getName());*/
     List<String> ret = new ArrayList<String>();
     DataUnit du = object.getDataunit();
     short id = du.getSetField().getThriftFieldId();
