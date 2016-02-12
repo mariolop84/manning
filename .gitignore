@@ -5,3 +5,4 @@ syntax: glob
 *.project
 *.settings
 /bin/
+/target/
