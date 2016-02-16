@@ -3,6 +3,8 @@ package es.manning.batchlayer;
 import org.apache.hadoop.fs.FileSystem;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.hadoop.conf.Configuration;
@@ -12,6 +14,7 @@ import com.backtype.hadoop.pail.Pail.TypedRecordOutputStream;
 import es.manning.tap.SplitDataPailStructure;
 import es.manning.tap.DataPailStructure;
 import es.manning.test.Data;
+import jcascalog.Api;
 import es.manning.schema.*;
 
 public class DataSource {
@@ -57,6 +60,10 @@ public class DataSource {
 
 	}
 
+	
+	
+	
+	//test to read
 	public static void readLogins() throws IOException {
 		System.out.println("DataSource.readLogins: INICIO");
 		Pail<es.manning.schema.Data> dataPail = new Pail<es.manning.schema.Data>(NEW_ROOT);
@@ -65,4 +72,5 @@ public class DataSource {
 		}
 		System.out.println("DataSource.readLogins: FIN");
 	}
+
 }
