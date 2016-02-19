@@ -10,7 +10,6 @@ public class Principal {
 
 		try {
 		
-			
 			Pail masterPail = new Pail(Constants.MASTER_ROOT);
 			Pail newDataPail = new Pail(Constants.NEW_ROOT);
 			Ingestor ing = new Ingestor();
