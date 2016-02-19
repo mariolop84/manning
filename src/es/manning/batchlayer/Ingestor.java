@@ -23,7 +23,7 @@ public class Ingestor {
 		setApplicationConf();
 	}
 
-	// ingest new data to master data set
+	//Ingest new data to master data set
 	@SuppressWarnings("rawtypes")
 	public static void ingest(Pail masterPail, Pail newDataPail) throws IOException {
 		FileSystem fs = FileSystem.get(new Configuration());
@@ -42,8 +42,7 @@ public class Ingestor {
 		newDataPail.deleteSnapshot(snapshotPail);
 	}
 
-	// shred the new data and the master data set absorb the result of the
-	// shreding
+	//Shred the new data then the masterdata set absorb the result of the shreding
 	@SuppressWarnings("rawtypes")
 	public static void appendNewDataToMasterDataPail(Pail masterPail, Pail snapshotPail) throws IOException {
 		Pail shreddedPail = shred();
@@ -51,10 +50,8 @@ public class Ingestor {
 
 	}
 
-	// takes the data from de snapshot a create PailTap (DataPailStructure and
-	// SplitDataPailStructure)
-	// to build the Vertical Partitioning, this is to manage a large amount of
-	// files
+	//Takes the data from a snapshot and create two PailTaps (DataPailStructure and SplitDataPailStructure)
+	//this is for the Vertical Partitioning, and manage a large amount of files
 	@SuppressWarnings("rawtypes")
 	public static Pail shred() throws IOException {
 		
