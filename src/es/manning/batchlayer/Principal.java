@@ -15,7 +15,9 @@ public class Principal {
 
 		try {
 		
+			@SuppressWarnings("rawtypes")
 			Pail masterPail = new Pail(MASTER_ROOT);
+			@SuppressWarnings("rawtypes")
 			Pail newDataPail = new Pail(NEW_ROOT);
 			Ingestor ing = new Ingestor();
 			
