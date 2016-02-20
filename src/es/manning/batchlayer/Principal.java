@@ -30,8 +30,11 @@ public class Principal {
 			case "initTestData":
 				Principal.initTestData();
 				break;
-			case "ingesr":
+			case "ingest":
 				Principal.ingest();
+				break;
+			default: 
+				logger.info("Principal.main.Error: Entrada no valida: " + entrada);
 				break;
 			}
 		} catch (Exception e) {
