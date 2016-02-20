@@ -25,7 +25,7 @@ public class Ingestor {
 
 	//Ingest new data to master data set
 	@SuppressWarnings("rawtypes")
-	public static void ingest(Pail masterPail, Pail newDataPail) throws IOException {
+	public void ingest(Pail masterPail, Pail newDataPail) throws IOException {
 		FileSystem fs = FileSystem.get(new Configuration());
 		fs.delete(new Path("/tmp/swa"), true);
 		// tmp/swa is used as a temporary workspace throughout the batch

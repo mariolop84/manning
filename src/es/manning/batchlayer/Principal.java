@@ -13,9 +13,7 @@ import org.apache.log4j.Logger;
 import backtype.hadoop.pail.Pail;
 import backtype.hadoop.pail.Pail.TypedRecordOutputStream;
 
-import es.manning.schema.Data;
 import es.manning.schema.GenderType;
-import es.manning.tap.DataPailStructure;
 import es.manning.tap.SplitDataPailStructure;
 import es.manning.batchlayer.Constants;
 
@@ -50,7 +48,8 @@ public class Principal {
 		try {
 			Pail masterPail = new Pail(Constants.MASTER_ROOT);
 			Pail newDataPail = new Pail(Constants.NEW_ROOT);
-			Ingestor.ingest(masterPail, newDataPail);
+			Ingestor ing = new Ingestor();
+			ing.ingest(masterPail, newDataPail);
 			logger.info("Principal.ingest: FIN");
 		} catch (Exception e) {
 			e.printStackTrace();
