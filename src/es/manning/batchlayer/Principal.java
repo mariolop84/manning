@@ -33,7 +33,7 @@ public class Principal {
 			case "ingest":
 				Principal.ingest();
 				break;
-			default: 
+			default:
 				logger.info("Principal.main.Error: Entrada no valida: " + entrada);
 				break;
 			}
@@ -61,19 +61,17 @@ public class Principal {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void initTestData() throws Exception {
+		logger.info("Principal.initTestData: INICIO");
 		FileSystem fs = FileSystem.get(new Configuration());
 		fs.delete(new Path(Constants.DATA_ROOT), true);
 		fs.delete(new Path(Constants.OUTPUTS_ROOT), true);
 		fs.mkdirs(new Path(Constants.DATA_ROOT));
 		fs.mkdirs(new Path(Constants.OUTPUTS_ROOT + "edb"));
 
-		// Pail masterPail = Pail.create(MASTER_ROOT, new
-		// SplitDataPailStructure());
+		Pail<es.manning.schema.Data> masterPail = Pail.create(Constants.MASTER_ROOT, new SplitDataPailStructure());
+		Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, new SplitDataPailStructure());
 
-		// Pail<Data> newPail = Pail.create(NEW_ROOT, new DataPailStructure());
-		Pail<es.manning.schema.Data> newPail = Pail.create(Constants.MASTER_ROOT, new SplitDataPailStructure());
-
-		TypedRecordOutputStream os = newPail.openWrite();
+		TypedRecordOutputStream os = masterPail.openWrite();
 
 		os.writeObject(es.manning.test.Data.makePageview(1, "http://foo.com/post1", 60));
 		os.writeObject(es.manning.test.Data.makePageview(3, "http://foo.com/post1", 62));
@@ -93,7 +91,20 @@ public class Principal {
 		os.writeObject(es.manning.test.Data.makePersonPropertyValueLocation(1, "Miami", "FL", "USA"));
 		os.writeObject(es.manning.test.Data.makePersonPropertyValueLocation(2, "LA", "California", "USA"));
 		os.close();
-
+		
+		os = newPail.openWrite();		
+		os.writeObject(es.manning.test.Data.makePageview(7, "http://foo.com/post3", 60));
+		os.writeObject(es.manning.test.Data.makePageview(7, "http://foo.com/post1", 62));
+		os.writeObject(es.manning.test.Data.makePageview(9, "http://foo.com/post1", 60));
+		os.writeObject(es.manning.test.Data.makePageview(9, "http://foo.com/post2", 4000));
+		os.writeObject(es.manning.test.Data.makePersonPropertyValueFull_name(7, "Cata"));
+		os.writeObject(es.manning.test.Data.makePersonPropertyValueGender(7, GenderType.FEMALE));
+		os.writeObject(es.manning.test.Data.makePersonPropertyValueLocation(7, "Madrid", "MAD", "Spain"));
+		os.writeObject(es.manning.test.Data.makePersonPropertyValueFull_name(9, "Mario"));
+		os.writeObject(es.manning.test.Data.makePersonPropertyValueGender(9, GenderType.FEMALE));
+		os.writeObject(es.manning.test.Data.makePersonPropertyValueLocation(9, "Madrid", "MAD", "Spain"));
+		os.close();
+		logger.info("Principal.initTestData: FIN");
 	}
 
 }
