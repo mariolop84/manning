@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.log4j.Logger;
 
 import backtype.cascading.tap.PailTap;
 import backtype.hadoop.pail.Pail;
@@ -17,15 +18,18 @@ import jcascalog.Api;
 import jcascalog.Subquery;
 
 public class Ingestor {
+	static Logger logger = Logger.getLogger(Ingestor.class);
 
 	public Ingestor() {
-		System.out.println("entra");
+		logger.info("Ingestor.Ingestor: INICIO");
 		setApplicationConf();
+		logger.info("Ingestor.Ingestor: FIN");
 	}
 
 	//Ingest new data to master data set
 	@SuppressWarnings("rawtypes")
 	public void ingest(Pail masterPail, Pail newDataPail) throws IOException {
+		logger.info("Ingestor.ingest: INICIO");
 		FileSystem fs = FileSystem.get(new Configuration());
 		fs.delete(new Path("/tmp/swa"), true);
 		// tmp/swa is used as a temporary workspace throughout the batch
@@ -40,6 +44,7 @@ public class Ingestor {
 		
 		// After the append, deletes only the data that exists in the snapshot
 		newDataPail.deleteSnapshot(snapshotPail);
+		logger.info("Ingestor.ingest: INICIO");
 	}
 
 	//Shred the new data then the masterdata set absorb the result of the shreding
@@ -75,6 +80,7 @@ public class Ingestor {
 
 	// config of serializer and deserializer
 	public static void setApplicationConf() {
+		logger.info("Ingestor.setApplicationConf: INICIO");
 		Map<String, String> conf = new HashMap<String, String>();
 		// The Thrift serializer for SuperWebAnalytics.com objects
 		String sers = "backtype.hadoop.ThriftSerialization";
@@ -83,6 +89,7 @@ public class Ingestor {
 		sers += "org.apache.hadoop.io.serializer.WritableSerialization";
 		conf.put("io.serializations", sers);
 		Api.setApplicationConf(conf);
+		logger.info("Ingestor.setApplicationConf: FIN");
 	}
 
 }
