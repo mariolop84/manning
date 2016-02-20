@@ -71,7 +71,7 @@ public class Principal {
 		// SplitDataPailStructure());
 
 		// Pail<Data> newPail = Pail.create(NEW_ROOT, new DataPailStructure());
-		Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, new SplitDataPailStructure());
+		Pail<es.manning.schema.Data> newPail = Pail.create(Constants.MASTER_ROOT, new SplitDataPailStructure());
 
 		TypedRecordOutputStream os = newPail.openWrite();
 
