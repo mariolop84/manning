@@ -24,8 +24,10 @@ public class Principal {
 
 	public static void main(String[] args) {
 		logger.info("Principal.main: INICIO");
-		logger.info("Principal.main.args[0]: " + args[0]);
-		switch (args[0]) {
+		String entrada = args[0];
+		logger.info("Principal.main.args[0]: " + entrada);
+		
+		switch (entrada) {
 		case "initTestData":
 			Principal.initTestData();
 			break;
