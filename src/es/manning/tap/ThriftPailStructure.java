@@ -1,6 +1,6 @@
 package es.manning.tap;
 
-import com.backtype.hadoop.pail.PailStructure;
+import backtype.hadoop.pail.PailStructure;
 import java.util.Collections;
 import java.util.List;
 import org.apache.thrift.TBase;

@@ -38,6 +38,7 @@ public class Principal {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static void initTestData()  {
         FileSystem fs;
 		try {
@@ -47,8 +48,8 @@ public class Principal {
 	        fs.mkdirs(new Path(Constants.DATA_ROOT));
 	        fs.mkdirs(new Path(Constants.OUTPUTS_ROOT + "edb"));
 
-	        Pail masterPail = Pail.create(Constants.MASTER_ROOT, (PailStructure) new SplitDataPailStructure());
-	        Pail<Data> newPail = Pail.create(Constants.NEW_ROOT, (PailStructure) new DataPailStructure());
+	        Pail masterPail = Pail.create(Constants.MASTER_ROOT,  new SplitDataPailStructure());
+	        Pail<Data> newPail = Pail.create(Constants.NEW_ROOT, new DataPailStructure());
 
 	        TypedRecordOutputStream os = newPail.openWrite();
 	        os.writeObject(makePageview(1, "http://foo.com/post1", 60));
