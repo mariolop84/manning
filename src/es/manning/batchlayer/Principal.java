@@ -22,8 +22,8 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		//Principal.ingest();
-		Principal.initTestData();
+		Principal.ingest();
+		//Principal.initTestData();
 	}
 	
 	private static void ingest(){
