@@ -52,7 +52,7 @@ public class Principal {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void initTestData() {
 		logger.info("Principal.initTestData: INICIO");
 		FileSystem fs;

@@ -3,18 +3,13 @@ package es.manning.batchlayer;
 import org.apache.hadoop.fs.FileSystem;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import backtype.hadoop.pail.Pail;
 import backtype.hadoop.pail.Pail.TypedRecordOutputStream;
 import es.manning.tap.SplitDataPailStructure;
-import es.manning.tap.DataPailStructure;
 import es.manning.test.Data;
-import jcascalog.Api;
 import es.manning.schema.*;
 
 public class DataSource {
