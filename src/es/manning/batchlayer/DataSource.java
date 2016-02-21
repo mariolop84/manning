@@ -6,22 +6,19 @@ import java.io.IOException;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.log4j.Logger;
 
 import backtype.hadoop.pail.Pail;
 import backtype.hadoop.pail.Pail.TypedRecordOutputStream;
 import es.manning.tap.SplitDataPailStructure;
-import es.manning.test.Data;
 import es.manning.schema.*;
 
 public class DataSource {
-	static Logger logger = Logger.getLogger(DataSource.class);
 	
 
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void initTestData() throws Exception {
-		logger.info("Principal.initTestData: INICIO");
+		System.out.println("Principal.initTestData: INICIO");
 		FileSystem fs = FileSystem.get(new Configuration());
 		fs.delete(new Path(Constants.DATA_ROOT), true);
 		fs.delete(new Path(Constants.OUTPUTS_ROOT), true);
@@ -64,7 +61,7 @@ public class DataSource {
 		os.writeObject(es.manning.test.Data.makePersonPropertyValueGender(9, GenderType.FEMALE));
 		os.writeObject(es.manning.test.Data.makePersonPropertyValueLocation(9, "Madrid", "MAD", "Spain"));
 		os.close();
-		logger.info("Principal.initTestData: FIN");
+		System.out.println("Principal.initTestData: FIN");
 	}
 
 	
@@ -72,12 +69,12 @@ public class DataSource {
 	
 	//test to read
 	public static void readData() throws IOException {
-		logger.info("DataSource.readLogins: INICIO");
+		System.out.println("DataSource.readLogins: INICIO");
 		Pail<es.manning.schema.Data> dataPail = new Pail<es.manning.schema.Data>(Constants.MASTER_ROOT);
 		for (es.manning.schema.Data d : dataPail) {
-			logger.info(d.toString());
+			System.out.println(d.toString());
 		}
-		logger.info("DataSource.readLogins: FIN");
+		System.out.println("DataSource.readLogins: FIN");
 	}
 
 }
