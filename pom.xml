@@ -148,8 +148,11 @@
 			<artifactId>hadoop-client</artifactId>
 			<version>2.7.0</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>2.6.4</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.zookeeper</groupId>
@@ -164,7 +167,8 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.7.5</version>
+			<version>1.7.16</version>
 		</dependency>
+
 	</dependencies>
 </project>
