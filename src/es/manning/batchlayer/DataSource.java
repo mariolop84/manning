@@ -10,6 +10,7 @@ import org.apache.hadoop.fs.Path;
 
 import com.backtype.hadoop.pail.Pail;
 import com.backtype.hadoop.pail.Pail.TypedRecordOutputStream;
+import com.backtype.hadoop.pail.PailSpec;
 import com.backtype.hadoop.pail.PailStructure;
 
 import es.manning.tap.SplitDataPailStructure;
@@ -31,17 +32,10 @@ public class DataSource {
 
 		SplitDataPailStructure sdps = new SplitDataPailStructure();
 		try {
-			Class t = Class.forName("es.manning.tap.SplitDataPailStructure");
-			Method[] algo = t.getDeclaredMethods();
 			
-			for(Method m : algo)
-			{
-				System.out.println(m.getName());
-			}
+			PailSpec ps = new PailSpec(sdps);
+			System.out.println(ps.getName());
 			
-			PailStructure ps = (PailStructure)t.newInstance();
-			
-			System.out.println(ps.toString());
 			
 			Pail masterPail = Pail.create(Constants.MASTER_ROOT, sdps);
 			System.out.println("en el error");
