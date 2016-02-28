@@ -32,7 +32,7 @@ public class DataSource {
 		try {
 			Pail masterPail = Pail.create(Constants.MASTER_ROOT, sdps);
 			System.out.println("en el error");
-			Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, sdps);
+			Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, (PailStructure)sdps);
 			TypedRecordOutputStream os = masterPail.openWrite();
 			os.writeObject(es.manning.test.Data.makePageview(1, "http://foo.com/post1", 60));
 			os.writeObject(es.manning.test.Data.makePageview(3, "http://foo.com/post1", 62));
