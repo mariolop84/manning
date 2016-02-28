@@ -38,6 +38,11 @@ public class DataSource {
 			{
 				System.out.println(m.getName());
 			}
+			
+			PailStructure ps = (PailStructure)t.newInstance();
+			
+			System.out.println(ps.toString());
+			
 			Pail masterPail = Pail.create(Constants.MASTER_ROOT, sdps);
 			System.out.println("en el error");
 			Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, sdps);
