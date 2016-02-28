@@ -24,7 +24,14 @@ public class DataSource {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void initTestData() throws Exception {
 		System.out.println("Principal.initTestData: INICIO");
-		FileSystem fs = FileSystem.get(new Configuration());
+		Configuration conf = new Configuration();
+		
+		System.out.println("-----------------");
+		System.out.println(conf.get("fs.defaultFS"));
+		System.out.println(conf.get("fs.default.name"));
+		System.out.println("-----------------");
+		
+		FileSystem fs = FileSystem.get(conf);
 		fs.delete(new Path(Constants.DATA_ROOT), true);
 		fs.delete(new Path(Constants.OUTPUTS_ROOT), true);
 		fs.mkdirs(new Path(Constants.DATA_ROOT));
