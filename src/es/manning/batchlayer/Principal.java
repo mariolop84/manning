@@ -10,15 +10,16 @@ public class Principal {
 		System.out.println("Principal.main: INICIO");
 		String entrada = args[0];
 		System.out.println("Principal.main.args[0]: " + entrada);
+		DataSource ds = new DataSource();
 		try {
 			switch (entrada) {
 			case "initTestData":
-				DataSource.initTestData();
-				DataSource.readData();
+				ds.initTestData();
+				ds.readData();
 				break;
 			case "ingest":
 				Principal.ingest();
-				DataSource.readData();
+				ds.readData();
 				break;
 			default:
 				System.out.println("Principal.main.Error: Entrada no valida: " + entrada);

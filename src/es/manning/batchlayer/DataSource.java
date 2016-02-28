@@ -15,11 +15,12 @@ import es.manning.tap.SplitDataPailStructure;
 import es.manning.schema.*;
 
 public class DataSource {
-	
 
+	public DataSource() {
+	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static void initTestData() throws Exception {
+	public void initTestData() throws Exception {
 		System.out.println("Principal.initTestData: INICIO");
 		FileSystem fs = FileSystem.get(new Configuration());
 		fs.delete(new Path(Constants.DATA_ROOT), true);
@@ -27,8 +28,10 @@ public class DataSource {
 		fs.mkdirs(new Path(Constants.DATA_ROOT));
 		fs.mkdirs(new Path(Constants.OUTPUTS_ROOT + "edb"));
 
-		Pail<es.manning.schema.Data> masterPail = Pail.create(Constants.MASTER_ROOT, (PailStructure) new SplitDataPailStructure());
-		Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, (PailStructure) new SplitDataPailStructure());
+		Pail<es.manning.schema.Data> masterPail = Pail.create(Constants.MASTER_ROOT,
+				(PailStructure) new SplitDataPailStructure());
+		Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT,
+				(PailStructure) new SplitDataPailStructure());
 
 		TypedRecordOutputStream os = masterPail.openWrite();
 
@@ -50,8 +53,8 @@ public class DataSource {
 		os.writeObject(es.manning.test.Data.makePersonPropertyValueLocation(1, "Miami", "FL", "USA"));
 		os.writeObject(es.manning.test.Data.makePersonPropertyValueLocation(2, "LA", "California", "USA"));
 		os.close();
-		
-		os = newPail.openWrite();		
+
+		os = newPail.openWrite();
 		os.writeObject(es.manning.test.Data.makePageview(7, "http://foo.com/post3", 60));
 		os.writeObject(es.manning.test.Data.makePageview(7, "http://foo.com/post1", 62));
 		os.writeObject(es.manning.test.Data.makePageview(9, "http://foo.com/post1", 60));
@@ -66,11 +69,8 @@ public class DataSource {
 		System.out.println("Principal.initTestData: FIN");
 	}
 
-	
-	
-	
-	//test to read
-	public static void readData() throws IOException {
+	// test to read
+	public void readData() throws IOException {
 		System.out.println("DataSource.readLogins: INICIO");
 		Pail<es.manning.schema.Data> dataPail = new Pail<es.manning.schema.Data>(Constants.MASTER_ROOT);
 		for (es.manning.schema.Data d : dataPail) {
