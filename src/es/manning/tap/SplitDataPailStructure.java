@@ -27,6 +27,7 @@ public class SplitDataPailStructure extends DataPailStructure {
 	public static HashMap<Short, FieldStructure> validFieldMap = new HashMap<Short, FieldStructure>();
 
 	public SplitDataPailStructure() {
+		System.out.println("SplitDataPailStructure.SplitDataPailStructure: INICIO/FIN");
 	}
 
 	/*
