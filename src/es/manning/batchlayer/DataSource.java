@@ -30,6 +30,7 @@ public class DataSource {
 
 		System.out.println("Antes del error");
 		SplitDataPailStructure sdps = new SplitDataPailStructure();
+		System.out.println("Despues del error");
 		Pail<es.manning.schema.Data> masterPail = Pail.create(Constants.MASTER_ROOT, sdps);
 		Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, sdps);
 
