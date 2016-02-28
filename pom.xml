@@ -44,7 +44,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>es.helloHadoop.principal.Principal</mainClass>
+							<mainClass>es.manning.batchlayer.Principal</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
