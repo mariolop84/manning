@@ -32,12 +32,13 @@ public class DataSource {
 
 		SplitDataPailStructure sdps = new SplitDataPailStructure();
 		try {
-			
+
 			PailSpec ps = new PailSpec(sdps);
+			System.out.println(ps == null);
 			System.out.println(ps.getName());
-			
-			
-			Pail masterPail = Pail.create(Constants.MASTER_ROOT, sdps);
+
+			// Pail masterPail = Pail.create(Constants.MASTER_ROOT, sdps);
+			Pail masterPail = Pail.create(fs, Constants.MASTER_ROOT, sdps);
 			System.out.println("en el error");
 			Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, sdps);
 			TypedRecordOutputStream os = masterPail.openWrite();
