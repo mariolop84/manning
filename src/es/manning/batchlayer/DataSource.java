@@ -3,6 +3,7 @@ package es.manning.batchlayer;
 import org.apache.hadoop.fs.FileSystem;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -30,9 +31,16 @@ public class DataSource {
 
 		SplitDataPailStructure sdps = new SplitDataPailStructure();
 		try {
+			Class t = Class.forName("es.manning.tap.SplitDataPailStructure");
+			Method[] algo = t.getDeclaredMethods();
+			
+			for(Method m : algo)
+			{
+				System.out.println(m.getName());
+			}
 			Pail masterPail = Pail.create(Constants.MASTER_ROOT, sdps);
 			System.out.println("en el error");
-			Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, (PailStructure)sdps);
+			Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, sdps);
 			TypedRecordOutputStream os = masterPail.openWrite();
 			os.writeObject(es.manning.test.Data.makePageview(1, "http://foo.com/post1", 60));
 			os.writeObject(es.manning.test.Data.makePageview(3, "http://foo.com/post1", 62));
