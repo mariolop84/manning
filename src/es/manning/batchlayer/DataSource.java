@@ -29,9 +29,9 @@ public class DataSource {
 		fs.mkdirs(new Path(Constants.OUTPUTS_ROOT + "edb"));
 
 		Pail<es.manning.schema.Data> masterPail = Pail.create(Constants.MASTER_ROOT,
-				(PailStructure) new SplitDataPailStructure());
+				new SplitDataPailStructure());
 		Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT,
-				(PailStructure) new SplitDataPailStructure());
+				new SplitDataPailStructure());
 
 		TypedRecordOutputStream os = masterPail.openWrite();
 
