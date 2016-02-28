@@ -28,6 +28,7 @@ public class DataPailStructure extends ThriftPailStructure<Data> {
 		return Data.class;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<String> getTarget(Data object) {
 		System.out.println("DataPailStructure.getTarget: ... INICIO");
