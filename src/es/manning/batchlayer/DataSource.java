@@ -38,7 +38,8 @@ public class DataSource {
 			System.out.println(ps.getName());
 
 			// Pail masterPail = Pail.create(Constants.MASTER_ROOT, sdps);
-			Pail masterPail = Pail.create(fs, Constants.MASTER_ROOT, sdps);
+			//Pail masterPail = Pail.create(fs, Constants.MASTER_ROOT, sdps);
+			Pail masterPail = Pail.create(fs, Constants.MASTER_ROOT, new PailSpec(sdps), true);
 			System.out.println("en el error");
 			Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, sdps);
 			TypedRecordOutputStream os = masterPail.openWrite();
