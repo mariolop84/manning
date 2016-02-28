@@ -30,7 +30,8 @@ public class DataSource {
 
 		SplitDataPailStructure sdps = new SplitDataPailStructure();
 		try {
-			Pail<es.manning.schema.Data> masterPail = Pail.create(Constants.MASTER_ROOT, sdps);
+			Pail masterPail = Pail.create(Constants.MASTER_ROOT, sdps);
+			System.out.println("en el error");
 			Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, sdps);
 			TypedRecordOutputStream os = masterPail.openWrite();
 			os.writeObject(es.manning.test.Data.makePageview(1, "http://foo.com/post1", 60));
