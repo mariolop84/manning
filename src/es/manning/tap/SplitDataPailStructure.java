@@ -26,6 +26,9 @@ public class SplitDataPailStructure extends DataPailStructure {
 	private static final long serialVersionUID = -4659235332192393978L;
 	public static HashMap<Short, FieldStructure> validFieldMap = new HashMap<Short, FieldStructure>();
 
+	public SplitDataPailStructure() {
+	}
+
 	/*
 	 * getMetadataMap and getIdForClass are helper functions for inspecting
 	 * Thrift objects.
