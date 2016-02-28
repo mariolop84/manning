@@ -3,10 +3,10 @@ package es.manning.tap;
 import java.util.ArrayList;
 import java.util.List;
 
-import backtype.cascading.tap.PailTap;
-import backtype.cascading.tap.PailTap.PailTapOptions;
-import backtype.hadoop.pail.PailSpec;
-import backtype.hadoop.pail.PailStructure;
+import com.backtype.cascading.tap.PailTap;
+import com.backtype.cascading.tap.PailTap.PailTapOptions;
+import com.backtype.hadoop.pail.PailSpec;
+import com.backtype.hadoop.pail.PailStructure;
 import es.manning.schema.DataUnit;
 import es.manning.tap.SplitDataPailStructure;
 

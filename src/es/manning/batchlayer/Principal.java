@@ -1,6 +1,6 @@
 package es.manning.batchlayer;
 
-import backtype.hadoop.pail.Pail;
+import com.backtype.hadoop.pail.Pail;
 import es.manning.batchlayer.Constants;
 
 public class Principal {

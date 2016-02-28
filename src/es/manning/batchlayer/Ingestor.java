@@ -9,8 +9,8 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 
 
-import backtype.cascading.tap.PailTap;
-import backtype.hadoop.pail.Pail;
+import com.backtype.cascading.tap.PailTap;
+import com.backtype.hadoop.pail.Pail;
 import cascalog.ops.IdentityBuffer;
 import cascalog.ops.RandLong;
 import es.manning.tap.DataPailTap;

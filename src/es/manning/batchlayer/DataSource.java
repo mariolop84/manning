@@ -7,8 +7,10 @@ import java.io.IOException;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 
-import backtype.hadoop.pail.Pail;
-import backtype.hadoop.pail.Pail.TypedRecordOutputStream;
+import com.backtype.hadoop.pail.Pail;
+import com.backtype.hadoop.pail.Pail.TypedRecordOutputStream;
+import com.backtype.hadoop.pail.PailStructure;
+
 import es.manning.tap.SplitDataPailStructure;
 import es.manning.schema.*;
 
@@ -25,8 +27,8 @@ public class DataSource {
 		fs.mkdirs(new Path(Constants.DATA_ROOT));
 		fs.mkdirs(new Path(Constants.OUTPUTS_ROOT + "edb"));
 
-		Pail<es.manning.schema.Data> masterPail = Pail.create(Constants.MASTER_ROOT, new SplitDataPailStructure());
-		Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, new SplitDataPailStructure());
+		Pail<es.manning.schema.Data> masterPail = Pail.create(Constants.MASTER_ROOT, (PailStructure) new SplitDataPailStructure());
+		Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, (PailStructure) new SplitDataPailStructure());
 
 		TypedRecordOutputStream os = masterPail.openWrite();
 
