@@ -28,6 +28,7 @@ public class DataSource {
 		fs.mkdirs(new Path(Constants.DATA_ROOT));
 		fs.mkdirs(new Path(Constants.OUTPUTS_ROOT + "edb"));
 
+		System.out.println("Antes del error");
 		SplitDataPailStructure sdps = new SplitDataPailStructure();
 		Pail<es.manning.schema.Data> masterPail = Pail.create(Constants.MASTER_ROOT, sdps);
 		Pail<es.manning.schema.Data> newPail = Pail.create(Constants.NEW_ROOT, sdps);
